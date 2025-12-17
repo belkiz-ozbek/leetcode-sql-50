@@ -46,8 +46,3 @@ WHERE title = (
     SELECT MIN(title) 
     FROM Max_Avg_Rating
     )
-
-
-
-
-
