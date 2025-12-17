@@ -4,7 +4,7 @@ WITH
 Rating_Number AS(
     SELECT name, COUNT(*) AS rating_number
     FROM MovieRating mr
-    JOIN Users u
+    INNER JOIN Users u
     ON mr.user_id = u.user_id 
     GROUP BY mr.user_id
 ),
