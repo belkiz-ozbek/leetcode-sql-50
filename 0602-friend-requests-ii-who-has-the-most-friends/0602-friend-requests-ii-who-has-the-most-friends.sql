@@ -6,7 +6,7 @@ Friend_Relations AS(
     accepter_id AS friend_id
     FROM RequestAccepted
     
-    UNION 
+    UNION ALL
     
     SELECT 
         accepter_id AS id,
@@ -14,7 +14,7 @@ Friend_Relations AS(
     FROM RequestAccepted
 ),
 Friend_Counts AS(
-    SELECT id, COUNT(*) friend_counts
+    SELECT id, COUNT(DISTINCT friend_id) AS friend_counts
     FROM Friend_Relations
     GROUP BY id
 )
