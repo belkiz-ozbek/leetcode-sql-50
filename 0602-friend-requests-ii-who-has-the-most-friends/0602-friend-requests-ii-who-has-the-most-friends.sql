@@ -2,12 +2,11 @@ WITH
 IDs AS(
     SELECT DISTINCT id
     FROM (
-        SELECT DISTINCT requester_id AS id
-        FROM RequestAccepted
+        SELECT DISTINCT requester_id AS id FROM RequestAccepted
         UNION ALL
-        SELECT DISTINCT accepter_id AS id
-        FROM RequestAccepted
+        SELECT DISTINCT accepter_id AS id FROM RequestAccepted
     ) i
+    
 ),
 Friends_Number AS(
     SELECT id, COUNT(*) AS friends_number
