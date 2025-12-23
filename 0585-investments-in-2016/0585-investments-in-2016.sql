@@ -1,6 +1,6 @@
 # Write your MySQL query statement below
 # have the same tiv_2015 value as one or more other policyholders
--- ANOTHER SOLUTION
+-- ANOTHER SOLUTION -- IMPROVED
 WITH Same_Tiv_2015 AS(
     SELECT *,
            COUNT(*) OVER(PARTITION BY tiv_2015) AS tiv_count,
@@ -11,8 +11,6 @@ SELECT ROUND(SUM(tiv_2016), 2) AS tiv_2016
 FROM Same_Tiv_2015
 WHERE tiv_count > 1 AND location_count = 1;
 
-
-
 #+-----+----------+----------+-----+-----+----------+---------------+ 
 #| pid | tiv_2015 | tiv_2016 | lat | lon | tiv_count| location_count|
 #+-----+----------+----------+-----+-----+----------+---------------+ 
@@ -22,19 +20,7 @@ WHERE tiv_count > 1 AND location_count = 1;
 #| 4   | 10       | 40       | 40  | 40  | 3        | 1
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- FIRST SOLUTION
 #WITH
 #Tekrar_Eden_Tiv_2015_Degerleri AS(
 #    SELECT tiv_2015
